@@ -1,0 +1,31 @@
+id: CVE-2023-46298-empty-json
+
+info:
+  name: Next.js Empty JSON Response with Prefetch Header (CVE-2023-46298)
+  author: yourname
+  severity: high
+  description: |
+    Detects empty JSON responses when the x-middleware-prefetch header is set to 1 in Next.js versions prior to 13.4.20-canary.13. This indicates a potential vulnerability that could lead to a denial of service (DoS).
+  reference:
+    - https://nvd.nist.gov/vuln/detail/CVE-2023-46298
+    - https://github.com/vercel/next.js/issues/45301
+    - https://security.snyk.io/vuln/SNYK-JS-NEXT-6032387
+
+requests:
+  - method: GET
+    path:
+      - "{{BaseURL}}/"  # Adjust the path to target a known Next.js static file
+
+    headers:
+      x-middleware-prefetch: "1"
+
+    matchers-condition: and
+    matchers:
+      - type: word
+        words:
+          - "{}"
+        part: body
+        name: Empty JSON Response
+      - type: status
+        status:
+          - 200
