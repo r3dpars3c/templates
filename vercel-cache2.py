@@ -62,20 +62,14 @@ if __name__ == "__main__":
         print(f"Error: The file {args.file} does not exist.")
         exit(1)
 
-    # Count total number of URLs
-    total_urls = sum(1 for line in open(base_url_path))
-
     # Check if output file exists, create if not
     Path(output_file).touch()
 
     with open(base_url_path, 'r') as file:
-        checked_count = 0
         for line in file:
-            checked_count += 1
             base_url = line.strip()
             random_value = generate_random_value()
             send_requests(base_url, random_value, args.proxy)
             valid_url = check_response(base_url, random_value, args.proxy)
             if valid_url:
                 save_to_file(valid_url, output_file)
-            print(f"\nProgress: {checked_count}/{total_urls} URLs checked.", end="", flush=True)
