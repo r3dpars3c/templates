@@ -6,7 +6,7 @@ info:
   severity: info
 
 variables:
-  baseurl: ""
+  baseurl: "{{BaseURL}}"
 
 requests:
   - raw:
