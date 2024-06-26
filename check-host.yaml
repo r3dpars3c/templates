@@ -1,0 +1,28 @@
+id: custom-host-header-check
+
+info:
+  name: Custom Host Header Check
+  author: your-name
+  severity: info
+
+variables:
+  baseurl: ""
+
+requests:
+  - raw:
+      - |
+        GET / HTTP/1.1
+        Host: xyz.com
+        Connection: close
+
+    address: "{{baseurl}}"
+    matchers:
+      - type: status
+        status:
+          - 200
+      - type: regex
+        part: header
+        negative: true
+        regex:
+          - 'Server: AkamaiGHost'
+          - 'Server: cloudflare'
