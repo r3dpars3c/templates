@@ -1,10 +1,10 @@
 import requests
 import random
 import argparse
-import time
 from urllib.parse import urljoin
 from pathlib import Path
 import urllib3
+import sys
 
 # Suppress only the single InsecureRequestWarning from urllib3 needed
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -22,11 +22,14 @@ def send_requests(base_url, random_value, proxy):
         "https": proxy
     } if proxy else None
 
-    for i in range(10):
-        url = urljoin(base_url, f"?k={random_value}")
-        response = requests.get(url, headers=headers, proxies=proxies, verify=False)
-        print(f"\rsending {i+1}/10", end='', flush=True)
-        time.sleep(0.5)  # Added sleep to simulate delay
+    try:
+        for i in range(10):
+            url = urljoin(base_url, f"?k={random_value}")
+            response = requests.get(url, headers=headers, proxies=proxies, verify=False, timeout=10)
+            print(f"\rsending {i+1}/10", end='', flush=True)
+    except requests.RequestException as e:
+        print(f"\nRequest failed: {e}")
+        return None
 
 def check_response(base_url, random_value, proxy):
     proxies = {
@@ -35,12 +38,16 @@ def check_response(base_url, random_value, proxy):
     } if proxy else None
 
     check_url = urljoin(base_url, f"?k={random_value}")
-    response = requests.get(check_url, proxies=proxies, verify=False)
-    if response.status_code == 200 and response.headers.get('Content-Type') == "text/x-component":
-        print(f"\nThe URL {check_url} is valid and returned the content-type 'text/x-component'.")
-        return check_url
-    else:
-        print("\nThe URL is not valid or did not return the content-type 'text/x-component'.")
+    try:
+        response = requests.get(check_url, proxies=proxies, verify=False, timeout=10)
+        if response.status_code == 200 and response.headers.get('Content-Type') == "text/x-component":
+            print(f"\nThe URL {check_url} is valid and returned the content-type 'text/x-component'.")
+            return check_url
+        else:
+            print("\nThe URL is not valid or did not return the content-type 'text/x-component'.")
+            return None
+    except requests.RequestException as e:
+        print(f"\nRequest failed: {e}")
         return None
 
 def save_to_file(url, output_file):
@@ -62,14 +69,20 @@ if __name__ == "__main__":
         print(f"Error: The file {args.file} does not exist.")
         exit(1)
 
+    # Count total number of URLs
+    total_urls = sum(1 for line in open(base_url_path))
+
     # Check if output file exists, create if not
     Path(output_file).touch()
 
     with open(base_url_path, 'r') as file:
+        checked_count = 0
         for line in file:
+            checked_count += 1
             base_url = line.strip()
             random_value = generate_random_value()
             send_requests(base_url, random_value, args.proxy)
             valid_url = check_response(base_url, random_value, args.proxy)
             if valid_url:
                 save_to_file(valid_url, output_file)
+            print(f"\nProgress: {checked_count}/{total_urls} URLs checked.", end="", flush=True)
