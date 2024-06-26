@@ -11,7 +11,7 @@ requests:
     path:
       - "{{BaseURL}}/?k=ytd76"
     headers:
-      Rsc: 1
+      x-invoke-error: "{\"message\":\"<xssdreds>\"}"
 
 
 
@@ -19,7 +19,7 @@ requests:
     path:
       - "{{BaseURL}}/?k=ytd76"
     headers:
-      Rsc: 1
+      x-invoke-error: "{\"message\":\"<xssdreds>\"}"
 
 
 
@@ -27,55 +27,55 @@ requests:
     path:
       - "{{BaseURL}}/?k=ytd76"
     headers:
-      Rsc: 1
+      x-invoke-error: "{\"message\":\"<xssdreds>\"}"
 
   - method: GET
     path:
       - "{{BaseURL}}/?k=ytd76"
     headers:
-      Rsc: 1
-
-
-  - method: GET
-    path:
-      - "{{BaseURL}}/?k=ytd76"
-    headers:
-      Rsc: 1
+      x-invoke-error: "{\"message\":\"<xssdreds>\"}"
 
 
   - method: GET
     path:
       - "{{BaseURL}}/?k=ytd76"
     headers:
-      Rsc: 1
+      x-invoke-error: "{\"message\":\"<xssdreds>\"}"
 
 
   - method: GET
     path:
       - "{{BaseURL}}/?k=ytd76"
     headers:
-      Rsc: 1
+      x-invoke-error: "{\"message\":\"<xssdreds>\"}"
 
 
   - method: GET
     path:
       - "{{BaseURL}}/?k=ytd76"
     headers:
-      Rsc: 1
+      x-invoke-error: "{\"message\":\"<xssdreds>\"}"
 
 
   - method: GET
     path:
       - "{{BaseURL}}/?k=ytd76"
     headers:
-      Rsc: 1
+      x-invoke-error: "{\"message\":\"<xssdreds>\"}"
 
 
   - method: GET
     path:
       - "{{BaseURL}}/?k=ytd76"
     headers:
-      Rsc: 1
+      x-invoke-error: "{\"message\":\"<xssdreds>\"}"
+
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/?k=ytd76"
+    headers:
+      x-invoke-error: "{\"message\":\"<xssdreds>\"}"
 
   - method: GET
     path:
