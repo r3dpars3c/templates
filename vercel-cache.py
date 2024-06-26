@@ -10,7 +10,8 @@ def send_requests(base_url, random_value, proxy):
     proxies = {
         "http": proxy,
         "https": proxy
-    }
+    } if proxy else None
+
     for _ in range(10):
         url = urljoin(base_url, f"?k={random_value}")
         response = requests.get(url, proxies=proxies)
@@ -20,7 +21,8 @@ def check_response(base_url, random_value, proxy):
     proxies = {
         "http": proxy,
         "https": proxy
-    }
+    } if proxy else None
+
     check_url = urljoin(base_url, f"?k={random_value}")
     response = requests.get(check_url, proxies=proxies)
     if response.status_code == 200 and response.text.strip() == "{}":
