@@ -9,7 +9,7 @@ info:
 requests:
   - method: GET
     path:
-      - "{{BaseURL}}/?k=5fr65"
+      - "{{BaseURL}}/?k=ytd76"
     headers:
       Rsc: 1
 
@@ -17,7 +17,7 @@ requests:
 
   - method: GET
     path:
-      - "{{BaseURL}}/?k=5fr65"
+      - "{{BaseURL}}/?k=ytd76"
     headers:
       Rsc: 1
 
@@ -25,61 +25,61 @@ requests:
 
   - method: GET
     path:
-      - "{{BaseURL}}/?k=5fr65"
+      - "{{BaseURL}}/?k=ytd76"
     headers:
       Rsc: 1
 
   - method: GET
     path:
-      - "{{BaseURL}}/?k=5fr65"
-    headers:
-      Rsc: 1
-
-
-  - method: GET
-    path:
-      - "{{BaseURL}}/?k=5fr65"
+      - "{{BaseURL}}/?k=ytd76"
     headers:
       Rsc: 1
 
 
   - method: GET
     path:
-      - "{{BaseURL}}/?k=5fr65"
+      - "{{BaseURL}}/?k=ytd76"
     headers:
       Rsc: 1
 
 
   - method: GET
     path:
-      - "{{BaseURL}}/?k=5fr65"
+      - "{{BaseURL}}/?k=ytd76"
     headers:
       Rsc: 1
 
 
   - method: GET
     path:
-      - "{{BaseURL}}/?k=5fr65"
+      - "{{BaseURL}}/?k=ytd76"
     headers:
       Rsc: 1
 
 
   - method: GET
     path:
-      - "{{BaseURL}}/?k=5fr65"
+      - "{{BaseURL}}/?k=ytd76"
     headers:
       Rsc: 1
 
 
   - method: GET
     path:
-      - "{{BaseURL}}/?k=5fr65"
+      - "{{BaseURL}}/?k=ytd76"
+    headers:
+      Rsc: 1
+
+
+  - method: GET
+    path:
+      - "{{BaseURL}}/?k=ytd76"
     headers:
       Rsc: 1
 
   - method: GET
     path:
-      - "{{BaseURL}}/?k=5fr65"
+      - "{{BaseURL}}/?k=ytd76"
 
     matchers:
           - type: word
